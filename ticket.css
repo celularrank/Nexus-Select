@@ -4,31 +4,41 @@
     box-sizing: border-box;
 }
 
+
 body {
+    min-height: 100vh;
+
     font-family: Arial, Helvetica, sans-serif;
 
-    min-height: 100vh;
+    color: white;
 
     background:
         radial-gradient(
             circle at top,
-            #0b2145,
+            #102c55 0%,
             #030816 55%
         );
-
-    color: white;
 }
 
 
-/* HEADER */
+/* ================================
+   HEADER
+================================ */
 
 .header {
-    width: 100%;
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
 
     background: rgba(3, 8, 22, 0.96);
 
-    border-bottom: 1px solid #182640;
+    border-bottom: 1px solid #1a2a45;
+
+    backdrop-filter: blur(12px);
 }
+
 
 .nav-container {
     max-width: 1200px;
@@ -46,28 +56,32 @@ body {
     justify-content: space-between;
 }
 
-.logo {
-    text-decoration: none;
 
+.logo {
     color: white;
+
+    text-decoration: none;
 
     font-size: 25px;
 
     font-weight: 900;
 }
 
+
 .logo span {
     color: #218cff;
 }
 
+
 nav {
     display: flex;
 
-    gap: 10px;
+    gap: 8px;
 }
 
+
 nav a {
-    color: #9ba9c0;
+    color: #98a6bd;
 
     text-decoration: none;
 
@@ -80,6 +94,7 @@ nav a {
     transition: 0.2s;
 }
 
+
 nav a:hover {
     color: white;
 
@@ -87,26 +102,34 @@ nav a:hover {
 }
 
 
-/* TICKET */
+/* ================================
+   MAIN
+================================ */
 
-.ticket-section {
-    min-height: calc(100vh - 150px);
+.main {
+    min-height: calc(100vh - 145px);
+
+    padding: 60px 20px;
 
     display: flex;
 
     align-items: center;
 
     justify-content: center;
-
-    padding: 60px 20px;
 }
 
-.ticket-box {
+
+.ticket-container {
     width: 100%;
 
-    max-width: 600px;
+    max-width: 650px;
+}
 
-    padding: 45px;
+
+.ticket-card {
+    padding: 42px;
+
+    border-radius: 25px;
 
     background:
         linear-gradient(
@@ -117,11 +140,14 @@ nav a:hover {
 
     border: 1px solid #203657;
 
-    border-radius: 25px;
-
     box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.35);
+        0 30px 80px rgba(0, 0, 0, 0.4);
 }
+
+
+/* ================================
+   TITLE
+================================ */
 
 .ticket-icon {
     width: 70px;
@@ -130,43 +156,103 @@ nav a:hover {
     display: flex;
 
     align-items: center;
-    justify-content: center;
 
-    background: #0d2a52;
+    justify-content: center;
 
     border-radius: 18px;
 
+    background: #0c2b55;
+
     font-size: 35px;
 
-    margin-bottom: 25px;
+    margin-bottom: 22px;
 }
 
-.subtitle {
-    color: #4ba0ff;
 
-    font-size: 13px;
+.small-title {
+    color: #4da2ff;
+
+    font-size: 12px;
 
     font-weight: 800;
 
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
+
 
 h1 {
     font-size: 42px;
 
-    margin: 8px 0;
+    margin-top: 7px;
+
+    margin-bottom: 10px;
 }
+
 
 .description {
     color: #8e9db7;
 
     margin-bottom: 30px;
+}
 
+
+/* ================================
+   PRODUTO
+================================ */
+
+.product-box {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 20px;
+
+    margin-bottom: 28px;
+
+    border-radius: 15px;
+
+    background: #050d1c;
+
+    border: 1px solid #1d3150;
+}
+
+
+.product-box div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.product-box span {
+    color: #71819a;
+
+    font-size: 13px;
+}
+
+
+.product-box strong {
     font-size: 17px;
 }
 
 
-/* FORM */
+.price {
+    text-align: right;
+}
+
+
+.price strong {
+    color: #4da2ff;
+}
+
+
+/* ================================
+   FORM
+================================ */
 
 form {
     display: flex;
@@ -174,30 +260,27 @@ form {
     flex-direction: column;
 }
 
+
 label {
-    font-size: 16px;
+    margin-bottom: 8px;
+
+    font-size: 15px;
 
     font-weight: 700;
-
-    margin-bottom: 10px;
 }
 
+
+input,
 textarea {
     width: 100%;
 
-    min-height: 170px;
-
-    resize: vertical;
-
-    padding: 16px;
-
-    border-radius: 13px;
-
-    border: 1px solid #263b5d;
+    border: 1px solid #263b5c;
 
     outline: none;
 
-    background: #050d1d;
+    border-radius: 12px;
+
+    background: #050c1b;
 
     color: white;
 
@@ -206,14 +289,36 @@ textarea {
     font-size: 15px;
 
     transition: 0.2s;
+}
+
+
+input {
+    height: 50px;
+
+    padding: 0 15px;
 
     margin-bottom: 20px;
 }
 
-textarea::placeholder {
-    color: #65748d;
+
+textarea {
+    min-height: 160px;
+
+    padding: 15px;
+
+    resize: vertical;
+
+    margin-bottom: 20px;
 }
 
+
+input::placeholder,
+textarea::placeholder {
+    color: #5f708b;
+}
+
+
+input:focus,
 textarea:focus {
     border-color: #218cff;
 
@@ -222,12 +327,12 @@ textarea:focus {
 }
 
 
-/* BUTTON */
+/* ================================
+   BOTÃO
+================================ */
 
-.ticket-button {
-    width: 100%;
-
-    border: none;
+.open-ticket-button {
+    border: 0;
 
     cursor: pointer;
 
@@ -246,73 +351,144 @@ textarea:focus {
     transition: 0.25s;
 }
 
-.ticket-button:hover {
+
+.open-ticket-button:hover {
     background: #3b9cff;
 
     transform: translateY(-2px);
 }
 
-.ticket-button:active {
-    transform: scale(0.98);
-}
 
+/* ================================
+   SUCESSO
+================================ */
 
-/* SUCCESS */
-
-.success-message {
+.ticket-success {
     display: none;
 
-    margin-top: 25px;
-
-    padding: 20px;
-
-    border-radius: 13px;
-
-    background: #092b1d;
-
-    border: 1px solid #1c7b52;
-
-    color: #7dffbd;
-
     text-align: center;
 
-    font-weight: 700;
-}
-
-.success-message p {
-    color: #9bcdb5;
-
-    font-weight: normal;
-
-    margin: 8px 0 15px;
-}
-
-.success-message a {
-    display: inline-block;
-
-    padding: 11px 18px;
-
-    border-radius: 9px;
-
-    background: #218cff;
-
-    color: white;
-
-    text-decoration: none;
+    padding-top: 15px;
 }
 
 
-/* FOOTER */
+.success-icon {
+    font-size: 55px;
 
-footer {
-    text-align: center;
+    margin-bottom: 10px;
+}
 
-    padding: 35px 20px;
 
-    border-top: 1px solid #15223a;
+.ticket-success h2 {
+    font-size: 28px;
+
+    margin-bottom: 8px;
+}
+
+
+.ticket-success p {
+    color: #8e9db7;
+}
+
+
+.ticket-number {
+    margin: 20px 0;
+
+    padding: 15px;
+
+    border-radius: 12px;
 
     background: #050c1b;
+
+    border: 1px solid #1d3150;
+
+    color: #4da2ff;
+
+    font-size: 25px;
+
+    font-weight: 900;
 }
+
+
+/* ================================
+   BOTÕES SUCESSO
+================================ */
+
+.copy-button,
+.discord-button,
+.new-ticket {
+    display: block;
+
+    width: 100%;
+
+    padding: 13px;
+
+    margin-top: 10px;
+
+    border-radius: 10px;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+
+.copy-button {
+    border: 1px solid #2c4161;
+
+    background: #0c172b;
+
+    color: white;
+}
+
+
+.discord-button {
+    background: #5865f2;
+
+    color: white;
+}
+
+
+.new-ticket {
+    border: 0;
+
+    background: transparent;
+
+    color: #7890b0;
+}
+
+
+.copy-button:hover {
+    background: #12233e;
+}
+
+
+.discord-button:hover {
+    background: #6975ff;
+}
+
+
+.new-ticket:hover {
+    color: white;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+    padding: 30px 20px;
+
+    text-align: center;
+
+    background: #050c1b;
+
+    border-top: 1px solid #15223a;
+}
+
 
 .footer-logo {
     font-size: 22px;
@@ -320,18 +496,22 @@ footer {
     font-weight: 900;
 }
 
+
 .footer-logo span {
     color: #218cff;
 }
 
+
 footer p {
-    color: #6f7f98;
+    color: #6e7e97;
 
     margin-top: 7px;
 }
 
 
-/* MOBILE */
+/* ================================
+   MOBILE
+================================ */
 
 @media (max-width: 700px) {
 
@@ -340,36 +520,46 @@ footer p {
 
         gap: 12px;
 
-        padding: 18px 15px;
+        padding: 17px 15px;
     }
+
 
     nav {
-        width: 100%;
+        flex-wrap: wrap;
 
         justify-content: center;
-
-        flex-wrap: wrap;
     }
+
 
     nav a {
-        font-size: 14px;
+        font-size: 13px;
     }
 
-    .ticket-section {
+
+    .main {
         padding: 35px 15px;
     }
 
-    .ticket-box {
-        padding: 30px 22px;
+
+    .ticket-card {
+        padding: 28px 20px;
 
         border-radius: 20px;
     }
+
 
     h1 {
         font-size: 34px;
     }
 
-    .description {
-        font-size: 15px;
+
+    .product-box {
+        flex-direction: column;
     }
+
+
+    .price {
+        text-align: left;
+    }
+
 }
