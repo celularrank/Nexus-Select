@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Abrir Ticket - Nexus Select</title>
+
+    <link rel="stylesheet" href="ticket.css">
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            NEXUS <span>SELECT</span>
+        </a>
+
+        <nav>
+            <a href="index.html">🏠 Início</a>
+            <a href="loja.html">🛒 Loja</a>
+            <a href="https://discord.gg/UbXGMjhYP" target="_blank">
+                💬 Discord
+            </a>
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <section class="ticket-section">
+
+        <div class="ticket-box">
+
+            <div class="ticket-icon">
+                🎟️
+            </div>
+
+            <span class="subtitle">
+                ATENDIMENTO
+            </span>
+
+            <h1>
+                Abrir Ticket
+            </h1>
+
+            <p class="description">
+                Preencha a mensagem abaixo para solicitar atendimento.
+            </p>
+
+
+            <form id="ticketForm">
+
+                <label for="message">
+                    📝 Mensagem
+                </label>
+
+                <textarea
+                    id="message"
+                    placeholder="Digite aqui o que você deseja comprar ou solicitar..."
+                    required
+                ></textarea>
+
+
+                <button type="submit" class="ticket-button">
+                    📩 Abrir Ticket
+                </button>
+
+            </form>
+
+
+            <div id="successMessage" class="success-message">
+
+                ✅ Solicitação enviada!
+
+                <p>
+                    Agora entre no Discord para continuar o atendimento.
+                </p>
+
+                <a
+                    href="https://discord.gg/UbXGMjhYP"
+                    target="_blank"
+                >
+                    💬 Entrar no Discord
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-logo">
+        NEXUS <span>SELECT</span>
+    </div>
+
+    <p>
+        © 2026 Nexus Select.
+    </p>
+
+</footer>
+
+
+<script src="ticket.js"></script>
+
+</body>
+</html>
