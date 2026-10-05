@@ -1,577 +1,630 @@
 * {
     margin: 0;
+
     padding: 0;
+
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #030816;
-    color: #ffffff;
-    line-height: 1.6;
+
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: white;
+
+    background:
+
+        radial-gradient(
+            circle at top,
+            #102c55 0%,
+            #030816 55%
+        );
+
 }
 
-/* HEADER */
 
 .header {
+
     position: sticky;
+
     top: 0;
+
     z-index: 1000;
 
-    background: rgba(3, 8, 22, 0.95);
-    border-bottom: 1px solid #17233d;
+    background:
+        rgba(
+            3,
+            8,
+            22,
+            0.96
+        );
 
-    backdrop-filter: blur(15px);
+    border-bottom:
+        1px solid #1a2a45;
+
+    backdrop-filter:
+        blur(12px);
+
 }
+
 
 .nav-container {
+
     max-width: 1200px;
+
     margin: auto;
 
-    height: 80px;
+    min-height: 75px;
 
-    padding: 0 25px;
+    padding: 0 20px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
 }
+
 
 .logo {
+
     color: white;
+
     text-decoration: none;
 
-    font-size: 28px;
+    font-size: 25px;
+
     font-weight: 900;
-    letter-spacing: -1px;
+
 }
+
 
 .logo span {
+
     color: #218cff;
-}
 
-.nav {
-    display: flex;
-    gap: 10px;
-}
-
-.nav a {
-    color: #9aa8c2;
-    text-decoration: none;
-
-    padding: 11px 16px;
-
-    border-radius: 10px;
-
-    font-weight: 600;
-
-    transition: 0.25s;
-}
-
-.nav a:hover,
-.nav a.active {
-    color: white;
-    background: #0c1b36;
-}
-
-.menu-btn {
-    display: none;
-
-    background: #0c1426;
-    border: 1px solid #1b2945;
-
-    color: white;
-
-    font-size: 28px;
-
-    width: 52px;
-    height: 52px;
-
-    border-radius: 14px;
-
-    cursor: pointer;
 }
 
 
-/* HERO */
-
-.hero {
-    min-height: 620px;
+nav {
 
     display: flex;
-    align-items: center;
-    justify-content: center;
 
-    text-align: center;
+    gap: 8px;
 
-    padding: 80px 20px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(24, 117, 255, 0.15),
-            transparent 55%
-        );
 }
 
-.hero-content {
-    max-width: 850px;
-}
 
-.badge {
-    display: inline-block;
+nav a {
 
-    padding: 9px 18px;
-
-    border-radius: 50px;
-
-    background: #0b1d3b;
-    border: 1px solid #164a91;
-
-    color: #4ba1ff;
-
-    font-weight: 700;
-    font-size: 14px;
-
-    margin-bottom: 25px;
-}
-
-.hero h1 {
-    font-size: clamp(48px, 9vw, 90px);
-
-    line-height: 0.95;
-
-    font-weight: 900;
-
-    margin-bottom: 25px;
-}
-
-.hero h1 span {
-    display: block;
-    color: #218cff;
-}
-
-.hero p {
-    max-width: 680px;
-    margin: auto;
-
-    color: #8e9bb3;
-
-    font-size: 20px;
-}
-
-.hero-buttons {
-    margin-top: 35px;
-
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-
-    flex-wrap: wrap;
-}
-
-.btn {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    min-width: 190px;
-
-    padding: 15px 25px;
-
-    border-radius: 12px;
+    color: #98a6bd;
 
     text-decoration: none;
 
-    font-weight: 800;
-
-    transition: 0.25s;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-}
-
-.primary {
-    color: white;
-    background: #218cff;
-    box-shadow: 0 10px 30px rgba(33, 140, 255, 0.2);
-}
-
-.secondary {
-    color: white;
-    background: #0d172b;
-    border: 1px solid #263653;
-}
-
-
-/* SECTION */
-
-.section {
-    max-width: 1200px;
-
-    margin: auto;
-
-    padding: 90px 20px;
-}
-
-.section-title {
-    text-align: center;
-
-    margin-bottom: 45px;
-}
-
-.section-title span {
-    color: #4da2ff;
-
-    font-size: 13px;
-
-    font-weight: 800;
-
-    letter-spacing: 3px;
-}
-
-.section-title h2 {
-    font-size: 48px;
-
-    margin: 8px 0;
-}
-
-.section-title p {
-    color: #8e9bb3;
-
-    font-size: 18px;
-}
-
-
-/* PRODUCTS */
-
-.products-preview {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 20px;
-}
-
-.product-card {
-    background:
-        linear-gradient(
-            145deg,
-            #0a1830,
-            #071124
-        );
-
-    border: 1px solid #1b2c4b;
-
-    border-radius: 20px;
-
-    padding: 35px;
-
-    transition: 0.3s;
-}
-
-.product-card:hover {
-    transform: translateY(-7px);
-
-    border-color: #218cff;
-
-    box-shadow:
-        0 15px 40px rgba(0, 90, 255, 0.12);
-}
-
-.product-icon {
-    width: 65px;
-    height: 65px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 16px;
-
-    background: #0d274b;
-
-    font-size: 32px;
-
-    margin-bottom: 25px;
-}
-
-.product-card h3 {
-    font-size: 24px;
-
-    margin-bottom: 10px;
-}
-
-.product-card p {
-    color: #8998b2;
-
-    min-height: 55px;
-
-    margin-bottom: 25px;
-}
-
-.product-btn {
-    display: inline-block;
-
-    color: white;
-
-    text-decoration: none;
-
-    background: #218cff;
-
-    padding: 11px 18px;
+    padding: 10px 14px;
 
     border-radius: 9px;
 
-    font-weight: 700;
+    font-weight: 600;
+
 }
 
 
-/* DISCORD */
+nav a:hover {
 
-.discord-section {
-    max-width: 1200px;
+    color: white;
 
-    margin: auto;
+    background: #0d1b34;
 
-    padding: 20px 20px 100px;
 }
 
-.discord-box {
+
+.main {
+
+    min-height:
+        calc(
+            100vh - 145px
+        );
+
+    padding:
+        60px 20px;
+
     display: flex;
+
+    justify-content: center;
 
     align-items: center;
 
-    gap: 25px;
+}
 
-    padding: 40px;
+
+.ticket-container {
+
+    width: 100%;
+
+    max-width: 650px;
+
+}
+
+
+.ticket-card {
+
+    padding: 42px;
 
     border-radius: 25px;
 
     background:
         linear-gradient(
-            135deg,
-            #0b2042,
-            #0a1327
+            145deg,
+            #0b1931,
+            #071124
         );
 
-    border: 1px solid #174e91;
+    border:
+        1px solid #203657;
+
+    box-shadow:
+        0 30px 80px
+        rgba(
+            0,
+            0,
+            0,
+            0.4
+        );
+
 }
 
-.discord-icon {
-    width: 75px;
-    height: 75px;
 
-    flex-shrink: 0;
+.ticket-icon {
+
+    width: 70px;
+
+    height: 70px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
-    background: #1d6fe8;
+    border-radius: 18px;
 
-    border-radius: 20px;
+    background: #0c2b55;
 
-    font-size: 36px;
+    font-size: 35px;
+
+    margin-bottom: 22px;
+
 }
 
-.discord-content {
-    flex: 1;
-}
 
-.discord-content span {
-    color: #4ca0ff;
+.small-title {
 
-    font-size: 13px;
+    color: #4da2ff;
+
+    font-size: 12px;
 
     font-weight: 800;
 
     letter-spacing: 2px;
+
 }
 
-.discord-content h2 {
-    font-size: 30px;
 
-    margin: 4px 0;
+h1 {
+
+    font-size: 42px;
+
+    margin-top: 7px;
+
+    margin-bottom: 10px;
+
 }
 
-.discord-content p {
-    color: #94a2ba;
+
+.description {
+
+    color: #8e9db7;
+
+    margin-bottom: 30px;
+
 }
 
-.discord-btn {
-    text-decoration: none;
+
+.product-box {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 20px;
+
+    margin-bottom: 28px;
+
+    border-radius: 15px;
+
+    background: #050d1c;
+
+    border:
+        1px solid #1d3150;
+
+}
+
+
+.product-box div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+}
+
+
+.product-box span {
+
+    color: #71819a;
+
+    font-size: 13px;
+
+}
+
+
+.product-box strong {
+
+    font-size: 17px;
+
+}
+
+
+.price {
+
+    text-align: right;
+
+}
+
+
+.price strong {
+
+    color: #4da2ff;
+
+}
+
+
+form {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+label {
+
+    margin-bottom: 8px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+}
+
+
+input,
+textarea {
+
+    width: 100%;
+
+    border:
+        1px solid #263b5c;
+
+    outline: none;
+
+    border-radius: 12px;
+
+    background: #050c1b;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+}
+
+
+input {
+
+    height: 50px;
+
+    padding:
+        0 15px;
+
+    margin-bottom: 20px;
+
+}
+
+
+textarea {
+
+    min-height: 160px;
+
+    padding: 15px;
+
+    resize: vertical;
+
+    margin-bottom: 20px;
+
+}
+
+
+input:focus,
+textarea:focus {
+
+    border-color: #218cff;
+
+}
+
+
+.open-ticket-button {
+
+    border: 0;
+
+    cursor: pointer;
+
+    padding: 16px;
+
+    border-radius: 12px;
 
     background: #218cff;
 
     color: white;
 
-    padding: 15px 25px;
-
-    border-radius: 12px;
+    font-size: 16px;
 
     font-weight: 800;
 
-    white-space: nowrap;
-
-    transition: 0.25s;
-}
-
-.discord-btn:hover {
-    transform: scale(1.04);
-
-    background: #3b9bff;
 }
 
 
-/* FOOTER */
+.open-ticket-button:hover {
+
+    background: #3b9cff;
+
+}
+
+
+.open-ticket-button:disabled {
+
+    opacity: 0.6;
+
+    cursor: wait;
+
+}
+
+
+.ticket-success {
+
+    display: none;
+
+    text-align: center;
+
+}
+
+
+.success-icon {
+
+    font-size: 55px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.ticket-success h2 {
+
+    font-size: 28px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.ticket-success p {
+
+    color: #8e9db7;
+
+}
+
+
+.ticket-number {
+
+    margin: 20px 0;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: #050c1b;
+
+    border:
+        1px solid #1d3150;
+
+    color: #4da2ff;
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+}
+
+
+.copy-button,
+.discord-button,
+.new-ticket {
+
+    display: block;
+
+    width: 100%;
+
+    padding: 13px;
+
+    margin-top: 10px;
+
+    border-radius: 10px;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+}
+
+
+.copy-button {
+
+    border:
+        1px solid #2c4161;
+
+    background: #0c172b;
+
+    color: white;
+
+}
+
+
+.discord-button {
+
+    background: #5865f2;
+
+    color: white;
+
+}
+
+
+.new-ticket {
+
+    border: 0;
+
+    background: transparent;
+
+    color: #7890b0;
+
+}
+
 
 footer {
-    padding: 55px 20px;
+
+    padding: 30px 20px;
 
     text-align: center;
 
     background: #050c1b;
 
-    border-top: 1px solid #15223a;
+    border-top:
+        1px solid #15223a;
+
 }
+
 
 .footer-logo {
-    font-size: 25px;
+
+    font-size: 22px;
 
     font-weight: 900;
+
 }
+
 
 .footer-logo span {
+
     color: #218cff;
+
 }
+
 
 footer p {
-    color: #7888a3;
 
-    margin-top: 8px;
-}
+    color: #6e7e97;
 
-.footer-links {
-    display: flex;
+    margin-top: 7px;
 
-    justify-content: center;
-
-    gap: 20px;
-
-    margin: 25px 0;
-}
-
-.footer-links a {
-    color: #9aa8c2;
-
-    text-decoration: none;
-
-    font-weight: 600;
-}
-
-.footer-links a:hover {
-    color: #218cff;
-}
-
-.copyright {
-    font-size: 13px;
 }
 
 
-/* MOBILE */
-
-@media (max-width: 800px) {
+@media (max-width: 700px) {
 
     .nav-container {
-        height: 70px;
-    }
 
-    .logo {
-        font-size: 23px;
-    }
-
-    .menu-btn {
-        display: block;
-    }
-
-    .nav {
-        display: none;
-
-        position: absolute;
-
-        top: 70px;
-        left: 15px;
-        right: 15px;
-
-        flex-direction: column;
-
-        padding: 12px;
-
-        background: #081226;
-
-        border: 1px solid #1b2c4b;
-
-        border-radius: 15px;
-    }
-
-    .nav.show {
-        display: flex;
-    }
-
-    .nav a {
-        width: 100%;
-
-        padding: 14px;
-    }
-
-    .hero {
-        min-height: 550px;
-
-        padding: 60px 20px;
-    }
-
-    .hero h1 {
-        font-size: 55px;
-    }
-
-    .hero p {
-        font-size: 17px;
-    }
-
-    .section {
-        padding: 70px 20px;
-    }
-
-    .section-title h2 {
-        font-size: 38px;
-    }
-
-    .products-preview {
-        grid-template-columns: 1fr;
-    }
-
-    .discord-box {
-        flex-direction: column;
-
-        text-align: center;
-
-        padding: 35px 25px;
-    }
-
-    .discord-btn {
-        width: 100%;
-    }
-
-    .footer-links {
         flex-direction: column;
 
         gap: 12px;
+
+        padding: 17px 15px;
+
     }
+
+
+    nav {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+    }
+
+
+    nav a {
+
+        font-size: 13px;
+
+    }
+
+
+    .main {
+
+        padding: 35px 15px;
+
+    }
+
+
+    .ticket-card {
+
+        padding: 28px 20px;
+
+    }
+
+
+    h1 {
+
+        font-size: 34px;
+
+    }
+
+
+    .product-box {
+
+        flex-direction: column;
+
+    }
+
+
+    .price {
+
+        text-align: left;
+
+    }
+
 }
