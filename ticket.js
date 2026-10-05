@@ -1,38 +1,300 @@
 // ========================================
 // NEXUS SELECT
-// SISTEMA DE TICKET - FRONTEND
+// SISTEMA DE TICKETS - V1
 // ========================================
 
-const ticketForm = document.getElementById("ticketForm");
-const message = document.getElementById("message");
-const successMessage = document.getElementById("successMessage");
 
-ticketForm.addEventListener("submit", function (event) {
+const ticketForm =
+    document.getElementById("ticketForm");
 
-    event.preventDefault();
+const customerName =
+    document.getElementById("customerName");
 
-    const text = message.value.trim();
+const customerContact =
+    document.getElementById("customerContact");
 
-    if (text.length < 3) {
+const message =
+    document.getElementById("message");
 
-        alert("⚠️ Digite uma mensagem antes de abrir o ticket.");
+const ticketSuccess =
+    document.getElementById("ticketSuccess");
 
-        return;
+const ticketNumber =
+    document.getElementById("ticketNumber");
+
+const copyTicket =
+    document.getElementById("copyTicket");
+
+const newTicket =
+    document.getElementById("newTicket");
+
+const productName =
+    document.getElementById("productName");
+
+const productPrice =
+    document.getElementById("productPrice");
+
+
+// ========================================
+// PRODUTO VINDO DA LOJA
+// ========================================
+
+const params =
+    new URLSearchParams(window.location.search);
+
+const product =
+    params.get("produto");
+
+const price =
+    params.get("preco");
+
+
+if (product) {
+
+    productName.textContent =
+        decodeURIComponent(product);
+
+}
+
+
+if (price) {
+
+    const value =
+        Number(price);
+
+    if (!isNaN(value)) {
+
+        productPrice.textContent =
+            value.toLocaleString(
+                "pt-BR",
+                {
+                    style: "currency",
+                    currency: "BRL"
+                }
+            );
+
     }
 
-
-    // Esconde o formulário
-    ticketForm.style.display = "none";
+}
 
 
-    // Mostra mensagem de sucesso
-    successMessage.style.display = "block";
+// ========================================
+// GERAR NÚMERO
+// ========================================
+
+function generateTicketNumber() {
+
+    const random =
+        Math.floor(
+            100000 +
+            Math.random() * 900000
+        );
+
+    return random;
+
+}
 
 
-    // Limpa o campo
-    message.value = "";
+// ========================================
+// SALVAR TICKET
+// ========================================
+
+function saveTicket(ticket) {
+
+    const savedTickets =
+        JSON.parse(
+            localStorage.getItem(
+                "nexusSelectTickets"
+            )
+        ) || [];
 
 
-    console.log("Solicitação de ticket:", text);
+    savedTickets.push(ticket);
 
-});
+
+    localStorage.setItem(
+        "nexusSelectTickets",
+        JSON.stringify(savedTickets)
+    );
+
+}
+
+
+// ========================================
+// ABRIR TICKET
+// ========================================
+
+ticketForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+            customerName.value.trim();
+
+        const contact =
+            customerContact.value.trim();
+
+        const text =
+            message.value.trim();
+
+
+        if (!name) {
+
+            alert(
+                "⚠️ Digite seu nome."
+            );
+
+            customerName.focus();
+
+            return;
+        }
+
+
+        if (!contact) {
+
+            alert(
+                "⚠️ Digite seu Discord."
+            );
+
+            customerContact.focus();
+
+            return;
+        }
+
+
+        if (text.length < 3) {
+
+            alert(
+                "⚠️ Escreva uma mensagem."
+            );
+
+            message.focus();
+
+            return;
+        }
+
+
+        const number =
+            generateTicketNumber();
+
+
+        const ticket = {
+
+            id: number,
+
+            customer: name,
+
+            discord: contact,
+
+            product:
+                product
+                    ? decodeURIComponent(product)
+                    : "Não informado",
+
+            price:
+                price
+                    ? Number(price)
+                    : 0,
+
+            message: text,
+
+            status: "aberto",
+
+            createdAt:
+                new Date().toISOString()
+
+        };
+
+
+        saveTicket(ticket);
+
+
+        ticketNumber.textContent =
+            "#" + number;
+
+
+        ticketForm.style.display =
+            "none";
+
+
+        ticketSuccess.style.display =
+            "block";
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+
+        console.log(
+            "Novo ticket:",
+            ticket
+        );
+
+    }
+);
+
+
+// ========================================
+// COPIAR TICKET
+// ========================================
+
+copyTicket.addEventListener(
+    "click",
+    async function() {
+
+        const number =
+            ticketNumber.textContent;
+
+
+        try {
+
+            await navigator.clipboard.writeText(
+                number
+            );
+
+
+            copyTicket.textContent =
+                "✅ Copiado!";
+
+
+            setTimeout(
+                function() {
+
+                    copyTicket.textContent =
+                        "📋 Copiar número";
+
+                },
+                2000
+            );
+
+
+        } catch {
+
+            alert(
+                "Seu ticket é " + number
+            );
+
+        }
+
+    }
+);
+
+
+// ========================================
+// NOVO TICKET
+// ========================================
+
+newTicket.addEventListener(
+    "click",
+    function() {
+
+        window.location.href =
+            "ticket.html";
+
+    }
+);
