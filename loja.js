@@ -528,26 +528,38 @@ function renderProducts(category = "todos") {
 /* =====================================================
    ABRIR TICKET
    ===================================================== */
-
 function openTicket(productId) {
 
     const product =
         products.find(
-            item => item.id === productId
+            item =>
+                item.id === productId
         );
 
 
-    if (!product) return;
+    if (!product) {
+
+        return;
+
+    }
 
 
-    selectedProductData = product;
+    const productName =
+        encodeURIComponent(
+            product.name
+        );
 
 
-    selectedProduct.textContent =
-        product.name;
+    const productPrice =
+        encodeURIComponent(
+            product.price
+        );
 
-    selectedPrice.textContent =
-        formatPrice(product.price);
+
+    window.location.href =
+        `ticket/ticket.html?produto=${productName}&preco=${productPrice}`;
+
+}
 
 
     ticketForm.reset();
