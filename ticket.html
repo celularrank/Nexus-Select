@@ -2,35 +2,56 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Ticket | Nexus Select</title>
 
-    <link rel="stylesheet" href="ticket.css">
+    <link
+        rel="stylesheet"
+        href="ticket.css"
+    >
+
 </head>
 
+
 <body>
+
 
 <header class="header">
 
     <div class="nav-container">
 
-        <a href="../index.html" class="logo">
+        <a
+            href="../index.html"
+            class="logo"
+        >
             NEXUS <span>SELECT</span>
         </a>
 
+
         <nav>
-            <a href="../index.html">🏠 Início</a>
 
-            <a href="../loja.html">🛒 Loja</a>
+            <a href="../index.html">
+                🏠 Início
+            </a>
 
-            <a href="https://discord.gg/UbXGMjhYP"
-               target="_blank">
+            <a href="../loja.html">
+                🛒 Loja
+            </a>
+
+            <a
+                href="https://discord.gg/UbXGMjhYP"
+                target="_blank"
+            >
                 💬 Discord
             </a>
+
         </nav>
 
     </div>
@@ -38,172 +59,206 @@
 </header>
 
 
+
 <main class="main">
 
-    <section class="ticket-container">
 
-        <div class="ticket-card">
-
-            <div class="ticket-icon">
-                🎟️
-            </div>
-
-            <span class="small-title">
-                ATENDIMENTO NEXUS SELECT
-            </span>
-
-            <h1>
-                Abrir Ticket
-            </h1>
-
-            <p class="description">
-                Preencha as informações abaixo para abrir
-                sua solicitação.
-            </p>
+<section class="ticket-container">
 
 
-            <!-- PRODUTO -->
-
-            <div class="product-box">
-
-                <div>
-
-                    <span>
-                        🛒 Produto
-                    </span>
-
-                    <strong id="productName">
-                        Não selecionado
-                    </strong>
-
-                </div>
+<div class="ticket-card">
 
 
-                <div class="price">
-
-                    <span>
-                        💰 Preço
-                    </span>
-
-                    <strong id="productPrice">
-                        R$ 0,00
-                    </strong>
-
-                </div>
-
-            </div>
+<div class="ticket-icon">
+    🎟️
+</div>
 
 
-            <!-- FORM -->
-
-            <form id="ticketForm">
-
-                <label for="customerName">
-                    👤 Seu nome
-                </label>
-
-                <input
-                    type="text"
-                    id="customerName"
-                    placeholder="Digite seu nome"
-                    maxlength="50"
-                    required
-                >
+<span class="small-title">
+    ATENDIMENTO NEXUS SELECT
+</span>
 
 
-                <label for="customerContact">
-                    💬 Discord
-                </label>
-
-                <input
-                    type="text"
-                    id="customerContact"
-                    placeholder="Seu usuário do Discord"
-                    maxlength="50"
-                    required
-                >
+<h1>
+    Abrir Ticket
+</h1>
 
 
-                <label for="message">
-                    📝 Mensagem
-                </label>
+<p class="description">
 
-                <textarea
-                    id="message"
-                    placeholder="Explique o que você deseja..."
-                    maxlength="1000"
-                    required
-                ></textarea>
+    Preencha os dados abaixo para
+    solicitar atendimento.
+
+</p>
 
 
-                <button
-                    type="submit"
-                    class="open-ticket-button"
-                >
-                    📩 Abrir Ticket
-                </button>
 
-            </form>
+<!-- PRODUTO -->
+
+<div class="product-box">
 
 
-            <!-- TICKET CRIADO -->
+<div>
 
-            <div
-                id="ticketSuccess"
-                class="ticket-success"
-            >
+    <span>
+        🛒 Produto
+    </span>
 
-                <div class="success-icon">
-                    ✅
-                </div>
+    <strong id="productName">
+        Não selecionado
+    </strong>
 
-                <h2>
-                    Ticket criado!
-                </h2>
-
-                <p>
-                    Seu número de atendimento:
-                </p>
-
-                <div
-                    id="ticketNumber"
-                    class="ticket-number"
-                >
-                    #000000
-                </div>
+</div>
 
 
-                <button
-                    id="copyTicket"
-                    class="copy-button"
-                >
-                    📋 Copiar número
-                </button>
+<div class="price">
+
+    <span>
+        💰 Preço
+    </span>
+
+    <strong id="productPrice">
+        R$ 0,00
+    </strong>
+
+</div>
 
 
-                <a
-                    href="https://discord.gg/UbXGMjhYP"
-                    target="_blank"
-                    class="discord-button"
-                >
-                    💬 Entrar no Discord
-                </a>
+</div>
 
 
-                <button
-                    id="newTicket"
-                    class="new-ticket"
-                >
-                    🎟️ Abrir outro ticket
-                </button>
 
-            </div>
+<!-- FORMULÁRIO -->
 
-        </div>
+<form id="ticketForm">
 
-    </section>
+
+<label for="customerName">
+    👤 Seu nome
+</label>
+
+
+<input
+    id="customerName"
+    type="text"
+    placeholder="Digite seu nome"
+    maxlength="50"
+    required
+>
+
+
+
+<label for="customerContact">
+    💬 Seu Discord
+</label>
+
+
+<input
+    id="customerContact"
+    type="text"
+    placeholder="Ex: usuario"
+    maxlength="50"
+    required
+>
+
+
+
+<label for="message">
+    📝 Mensagem
+</label>
+
+
+<textarea
+    id="message"
+    placeholder="Explique o que você deseja..."
+    maxlength="1000"
+    required
+></textarea>
+
+
+
+<button
+    type="submit"
+    class="open-ticket-button"
+>
+    📩 Abrir Ticket
+</button>
+
+
+</form>
+
+
+
+<!-- SUCESSO -->
+
+<div
+    id="ticketSuccess"
+    class="ticket-success"
+>
+
+
+<div class="success-icon">
+    ✅
+</div>
+
+
+<h2>
+    Ticket criado!
+</h2>
+
+
+<p>
+    Seu número de atendimento:
+</p>
+
+
+<div
+    id="ticketNumber"
+    class="ticket-number"
+>
+    #000000
+</div>
+
+
+
+<button
+    id="copyTicket"
+    class="copy-button"
+>
+    📋 Copiar número
+</button>
+
+
+
+<a
+    href="https://discord.gg/UbXGMjhYP"
+    target="_blank"
+    class="discord-button"
+>
+    💬 Entrar no Discord
+</a>
+
+
+
+<button
+    id="newTicket"
+    class="new-ticket"
+>
+    🎟️ Abrir outro ticket
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
 
 </main>
+
 
 
 <footer>
@@ -219,7 +274,10 @@
 </footer>
 
 
+
 <script src="ticket.js"></script>
 
+
 </body>
+
 </html>
