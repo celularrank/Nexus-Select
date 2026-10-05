@@ -1,75 +1,148 @@
 // ========================================
 // NEXUS SELECT
-// SISTEMA DE TICKETS - V1
+// TICKETS V2
 // ========================================
 
+
+// ========================================
+// CONFIGURAÇÃO
+// ========================================
+
+// TESTE LOCAL:
+
+const API_URL =
+    "http://localhost:3000";
+
+
+// DEPOIS DO BACKEND HOSPEDADO:
+//
+// const API_URL =
+//     "https://SEU-BACKEND.onrender.com";
+
+
+// ========================================
+// ELEMENTOS
+// ========================================
 
 const ticketForm =
-    document.getElementById("ticketForm");
+    document.getElementById(
+        "ticketForm"
+    );
+
 
 const customerName =
-    document.getElementById("customerName");
+    document.getElementById(
+        "customerName"
+    );
+
 
 const customerContact =
-    document.getElementById("customerContact");
+    document.getElementById(
+        "customerContact"
+    );
+
 
 const message =
-    document.getElementById("message");
+    document.getElementById(
+        "message"
+    );
+
 
 const ticketSuccess =
-    document.getElementById("ticketSuccess");
+    document.getElementById(
+        "ticketSuccess"
+    );
+
 
 const ticketNumber =
-    document.getElementById("ticketNumber");
+    document.getElementById(
+        "ticketNumber"
+    );
+
 
 const copyTicket =
-    document.getElementById("copyTicket");
+    document.getElementById(
+        "copyTicket"
+    );
+
 
 const newTicket =
-    document.getElementById("newTicket");
+    document.getElementById(
+        "newTicket"
+    );
+
 
 const productName =
-    document.getElementById("productName");
+    document.getElementById(
+        "productName"
+    );
+
 
 const productPrice =
-    document.getElementById("productPrice");
+    document.getElementById(
+        "productPrice"
+    );
 
 
 // ========================================
-// PRODUTO VINDO DA LOJA
+// PEGAR PRODUTO DA URL
 // ========================================
 
 const params =
-    new URLSearchParams(window.location.search);
+    new URLSearchParams(
+        window.location.search
+    );
+
 
 const product =
-    params.get("produto");
+    params.get(
+        "produto"
+    );
+
 
 const price =
-    params.get("preco");
+    params.get(
+        "preco"
+    );
 
+
+// ========================================
+// MOSTRAR PRODUTO
+// ========================================
 
 if (product) {
 
     productName.textContent =
-        decodeURIComponent(product);
+        decodeURIComponent(
+            product
+        );
 
 }
 
+
+// ========================================
+// MOSTRAR PREÇO
+// ========================================
 
 if (price) {
 
     const value =
         Number(price);
 
-    if (!isNaN(value)) {
+
+    if (
+        Number.isFinite(value)
+    ) {
 
         productPrice.textContent =
             value.toLocaleString(
                 "pt-BR",
                 {
+
                     style: "currency",
+
                     currency: "BRL"
+
                 }
             );
 
@@ -79,54 +152,12 @@ if (price) {
 
 
 // ========================================
-// GERAR NÚMERO
-// ========================================
-
-function generateTicketNumber() {
-
-    const random =
-        Math.floor(
-            100000 +
-            Math.random() * 900000
-        );
-
-    return random;
-
-}
-
-
-// ========================================
-// SALVAR TICKET
-// ========================================
-
-function saveTicket(ticket) {
-
-    const savedTickets =
-        JSON.parse(
-            localStorage.getItem(
-                "nexusSelectTickets"
-            )
-        ) || [];
-
-
-    savedTickets.push(ticket);
-
-
-    localStorage.setItem(
-        "nexusSelectTickets",
-        JSON.stringify(savedTickets)
-    );
-
-}
-
-
-// ========================================
-// ABRIR TICKET
+// ENVIAR TICKET
 // ========================================
 
 ticketForm.addEventListener(
     "submit",
-    function(event) {
+    async function(event) {
 
         event.preventDefault();
 
@@ -134,14 +165,22 @@ ticketForm.addEventListener(
         const name =
             customerName.value.trim();
 
-        const contact =
+
+        const discord =
             customerContact.value.trim();
+
 
         const text =
             message.value.trim();
 
 
-        if (!name) {
+        // ------------------------------
+        // VALIDAR
+        // ------------------------------
+
+        if (
+            name.length < 2
+        ) {
 
             alert(
                 "⚠️ Digite seu nome."
@@ -150,10 +189,13 @@ ticketForm.addEventListener(
             customerName.focus();
 
             return;
+
         }
 
 
-        if (!contact) {
+        if (
+            discord.length < 2
+        ) {
 
             alert(
                 "⚠️ Digite seu Discord."
@@ -162,10 +204,13 @@ ticketForm.addEventListener(
             customerContact.focus();
 
             return;
+
         }
 
 
-        if (text.length < 3) {
+        if (
+            text.length < 3
+        ) {
 
             alert(
                 "⚠️ Escreva uma mensagem."
@@ -174,87 +219,164 @@ ticketForm.addEventListener(
             message.focus();
 
             return;
+
         }
 
 
-        const number =
-            generateTicketNumber();
+        // ------------------------------
+        // BOTÃO
+        // ------------------------------
+
+        const button =
+            ticketForm.querySelector(
+                "button[type='submit']"
+            );
 
 
-        const ticket = {
-
-            id: number,
-
-            customer: name,
-
-            discord: contact,
-
-            product:
-                product
-                    ? decodeURIComponent(product)
-                    : "Não informado",
-
-            price:
-                price
-                    ? Number(price)
-                    : 0,
-
-            message: text,
-
-            status: "aberto",
-
-            createdAt:
-                new Date().toISOString()
-
-        };
+        button.disabled =
+            true;
 
 
-        saveTicket(ticket);
+        button.textContent =
+            "⏳ Criando ticket...";
 
 
-        ticketNumber.textContent =
-            "#" + number;
+        try {
+
+            // --------------------------
+            // ENVIAR PARA API
+            // --------------------------
+
+            const response =
+                await fetch(
+                    `${API_URL}/api/tickets`,
+                    {
+
+                        method:
+                            "POST",
+
+                        headers: {
+
+                            "Content-Type":
+                                "application/json"
+
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                customerName:
+                                    name,
+
+                                discordUser:
+                                    discord,
+
+                                product:
+                                    product
+                                        ? decodeURIComponent(product)
+                                        : "Não informado",
+
+                                price:
+                                    price
+                                        ? Number(price)
+                                        : 0,
+
+                                message:
+                                    text
+
+                            })
+
+                    }
+                );
 
 
-        ticketForm.style.display =
-            "none";
+            const data =
+                await response.json();
 
 
-        ticketSuccess.style.display =
-            "block";
+            // --------------------------
+            // ERRO
+            // --------------------------
+
+            if (
+                !response.ok
+            ) {
+
+                throw new Error(
+                    data.message ||
+                    "Não foi possível criar o ticket."
+                );
+
+            }
 
 
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
+            // --------------------------
+            // SUCESSO
+            // --------------------------
+
+            ticketNumber.textContent =
+                data.ticket.code;
 
 
-        console.log(
-            "Novo ticket:",
-            ticket
-        );
+            ticketForm.style.display =
+                "none";
+
+
+            ticketSuccess.style.display =
+                "block";
+
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+
+        } catch (error) {
+
+            console.error(
+                error
+            );
+
+
+            alert(
+                "❌ Erro ao abrir o ticket.\n\n" +
+                error.message
+            );
+
+
+            button.disabled =
+                false;
+
+
+            button.textContent =
+                "📩 Abrir Ticket";
+
+        }
 
     }
 );
 
 
 // ========================================
-// COPIAR TICKET
+// COPIAR NÚMERO
 // ========================================
 
 copyTicket.addEventListener(
     "click",
     async function() {
 
-        const number =
+        const code =
             ticketNumber.textContent;
 
 
         try {
 
             await navigator.clipboard.writeText(
-                number
+                code
             );
 
 
@@ -276,7 +398,8 @@ copyTicket.addEventListener(
         } catch {
 
             alert(
-                "Seu ticket é " + number
+                "Número do ticket: " +
+                code
             );
 
         }
