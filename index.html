@@ -2,761 +2,228 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>Nexus Select</title>
+    <meta name="description" content="Nexus Select - Loja oficial de contas e serviços.">
 
-    <meta
-        name="description"
-        content="Nexus Select — comunidade, eventos, notícias e novidades."
-    >
-
-    <meta
-        name="theme-color"
-        content="#071426"
-    >
-
-    <title>Nexus Select | Início</title>
-
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- =========================
-         HEADER
-    ========================== -->
+<header class="header">
+    <div class="nav-container">
 
-    <header class="header" id="header">
+        <a href="index.html" class="logo">
+            NEXUS <span>SELECT</span>
+        </a>
 
-        <div class="container nav">
+        <button class="menu-btn" id="menuBtn">
+            ☰
+        </button>
 
-            <a
-                href="#inicio"
-                class="logo"
-                aria-label="Nexus Select"
-            >
-                NEXUS
-                <span>SELECT</span>
-            </a>
+        <nav class="nav" id="navMenu">
+            <a href="index.html" class="active">🏠 Início</a>
+            <a href="loja.html">🛒 Loja</a>
+            <a href="https://discord.gg/UbXGMjhYP" target="_blank">💬 Discord</a>
+        </nav>
 
-            <button
-                class="menu-button"
-                id="menuButton"
-                type="button"
-                aria-label="Abrir menu"
-                aria-expanded="false"
-            >
-                ☰
-            </button>
+    </div>
+</header>
 
-            <nav
-                class="menu"
-                id="menu"
-                aria-label="Menu principal"
-            >
 
-                <a
-                    href="#inicio"
-                    class="active"
-                >
-                    🏠 Início
+<main>
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                🛒 NEXUS SELECT
+            </div>
+
+            <h1>
+                SUA LOJA
+                <span>ONLINE</span>
+            </h1>
+
+            <p>
+                Encontre contas, serviços e produtos da Nexus Select
+                de forma rápida e simples.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="loja.html" class="btn primary">
+                    🛒 VER LOJA
                 </a>
 
-                <a href="#sobre">
-                    ⚔️ Servidor
-                </a>
-
-                <a href="#ranking">
-                    🏆 Ranking
-                </a>
-
-                <a href="#eventos">
-                    🎁 Eventos
-                </a>
-
-                <a href="#noticias">
-                    📢 Notícias
-                </a>
-
-                <a
-                    href="https://discord.gg/UbXGMjhYP"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="discord-nav"
-                >
-                    💬 Discord
-                </a>
-
-            </nav>
-
-        </div>
-
-    </header>
-
-
-    <!-- =========================
-         CONTEÚDO
-    ========================== -->
-
-    <main>
-
-        <!-- =========================
-             HERO
-        ========================== -->
-
-        <section
-            class="hero"
-            id="inicio"
-        >
-
-            <div class="hero-bg"></div>
-
-            <div class="hero-glow hero-glow-one"></div>
-            <div class="hero-glow hero-glow-two"></div>
-
-            <div class="container hero-content">
-
-                <div class="hero-badge">
-                    🌊 BEM-VINDO AO NEXUS SELECT
-                </div>
-
-                <h1>
-                    DOMINE
-                    <span>OS MARES</span>
-                </h1>
-
-                <p>
-                    Entre para a comunidade Nexus Select,
-                    participe dos eventos, conheça novos
-                    jogadores e mostre suas habilidades.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a
-                        href="https://discord.gg/UbXGMjhYP"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="button button-primary"
-                    >
-                        💬 ENTRAR NO DISCORD
-                    </a>
-
-                    <a
-                        href="#sobre"
-                        class="button button-secondary"
-                    >
-                        ⚔️ CONHECER
-                    </a>
-
-                </div>
-
-            </div>
-
-            <div class="hero-scroll">
-                <span>↓</span>
-                <small>Role para baixo</small>
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             STATUS
-        ========================== -->
-
-        <section class="status-section">
-
-            <div class="container status-grid">
-
-                <article class="status-card reveal">
-
-                    <div class="status-icon">
-                        👥
-                    </div>
-
-                    <div>
-                        <strong
-                            data-counter="127"
-                        >
-                            0
-                        </strong>
-
-                        <span>
-                            Jogadores online
-                        </span>
-                    </div>
-
-                </article>
-
-
-                <article class="status-card reveal">
-
-                    <div class="status-icon">
-                        ⚔️
-                    </div>
-
-                    <div>
-                        <strong>
-                            24/7
-                        </strong>
-
-                        <span>
-                            Comunidade
-                        </span>
-                    </div>
-
-                </article>
-
-
-                <article class="status-card reveal">
-
-                    <div class="status-icon">
-                        🎁
-                    </div>
-
-                    <div>
-                        <strong>
-                            ATIVOS
-                        </strong>
-
-                        <span>
-                            Eventos
-                        </span>
-                    </div>
-
-                </article>
-
-
-                <article class="status-card reveal">
-
-                    <div class="status-icon">
-                        🏆
-                    </div>
-
-                    <div>
-                        <strong>
-                            TOP
-                        </strong>
-
-                        <span>
-                            Competição
-                        </span>
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             SOBRE
-        ========================== -->
-
-        <section
-            class="section"
-            id="sobre"
-        >
-
-            <div class="container">
-
-                <div class="section-heading reveal">
-
-                    <span>
-                        SOBRE A COMUNIDADE
-                    </span>
-
-                    <h2>
-                        🌊 NEXUS SELECT
-                    </h2>
-
-                    <p>
-                        Um espaço criado para jogadores
-                        que procuram diversão, competição,
-                        eventos e uma comunidade ativa.
-                    </p>
-
-                </div>
-
-
-                <div class="features-grid">
-
-                    <article class="feature-card reveal">
-
-                        <div class="feature-icon">
-                            ⚔️
-                        </div>
-
-                        <h3>
-                            Competição
-                        </h3>
-
-                        <p>
-                            Participe de disputas e mostre
-                            suas habilidades.
-                        </p>
-
-                    </article>
-
-
-                    <article class="feature-card reveal">
-
-                        <div class="feature-icon">
-                            🎁
-                        </div>
-
-                        <h3>
-                            Eventos
-                        </h3>
-
-                        <p>
-                            Acompanhe os eventos especiais
-                            da Nexus Select.
-                        </p>
-
-                    </article>
-
-
-                    <article class="feature-card reveal">
-
-                        <div class="feature-icon">
-                            👥
-                        </div>
-
-                        <h3>
-                            Comunidade
-                        </h3>
-
-                        <p>
-                            Converse, conheça jogadores e
-                            participe da comunidade.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             RANKING
-        ========================== -->
-
-        <section
-            class="section section-dark"
-            id="ranking"
-        >
-
-            <div class="container">
-
-                <div class="section-heading reveal">
-
-                    <span>
-                        COMPETIÇÃO
-                    </span>
-
-                    <h2>
-                        🏆 RANKING
-                    </h2>
-
-                    <p>
-                        Em breve você poderá acompanhar
-                        os melhores jogadores da comunidade.
-                    </p>
-
-                </div>
-
-
-                <div class="ranking-list">
-
-                    <article class="ranking-item reveal">
-
-                        <div class="ranking-position gold">
-                            1
-                        </div>
-
-                        <div class="ranking-player">
-
-                            <strong>
-                                Em breve
-                            </strong>
-
-                            <span>
-                                Primeiro colocado
-                            </span>
-
-                        </div>
-
-                        <div class="ranking-value">
-                            ---
-                        </div>
-
-                    </article>
-
-
-                    <article class="ranking-item reveal">
-
-                        <div class="ranking-position silver">
-                            2
-                        </div>
-
-                        <div class="ranking-player">
-
-                            <strong>
-                                Em breve
-                            </strong>
-
-                            <span>
-                                Segundo colocado
-                            </span>
-
-                        </div>
-
-                        <div class="ranking-value">
-                            ---
-                        </div>
-
-                    </article>
-
-
-                    <article class="ranking-item reveal">
-
-                        <div class="ranking-position bronze">
-                            3
-                        </div>
-
-                        <div class="ranking-player">
-
-                            <strong>
-                                Em breve
-                            </strong>
-
-                            <span>
-                                Terceiro colocado
-                            </span>
-
-                        </div>
-
-                        <div class="ranking-value">
-                            ---
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             EVENTOS
-        ========================== -->
-
-        <section
-            class="section"
-            id="eventos"
-        >
-
-            <div class="container">
-
-                <div class="section-heading reveal">
-
-                    <span>
-                        PARTICIPE
-                    </span>
-
-                    <h2>
-                        🎁 EVENTOS
-                    </h2>
-
-                    <p>
-                        Fique atento às novidades e aos
-                        próximos eventos.
-                    </p>
-
-                </div>
-
-
-                <article class="event-card reveal">
-
-                    <div class="event-icon">
-                        🌊
-                    </div>
-
-                    <div class="event-info">
-
-                        <span class="event-status">
-                            EM BREVE
-                        </span>
-
-                        <h3>
-                            Próximo evento
-                        </h3>
-
-                        <p>
-                            As informações dos próximos
-                            eventos serão divulgadas no
-                            Discord oficial.
-                        </p>
-
-                    </div>
-
-                    <a
-                        href="https://discord.gg/UbXGMjhYP"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="button button-small"
-                    >
-                        VER EVENTOS
-                    </a>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             NOTÍCIAS
-        ========================== -->
-
-        <section
-            class="section section-dark"
-            id="noticias"
-        >
-
-            <div class="container">
-
-                <div class="section-heading reveal">
-
-                    <span>
-                        NOVIDADES
-                    </span>
-
-                    <h2>
-                        📢 ÚLTIMAS NOTÍCIAS
-                    </h2>
-
-                    <p>
-                        Acompanhe as novidades da Nexus Select.
-                    </p>
-
-                </div>
-
-
-                <div class="news-grid">
-
-                    <article class="news-card reveal">
-
-                        <div class="news-image">
-                            🌊
-                        </div>
-
-                        <div class="news-content">
-
-                            <span>
-                                NEXUS SELECT
-                            </span>
-
-                            <h3>
-                                Bem-vindo à comunidade!
-                            </h3>
-
-                            <p>
-                                O site oficial da Nexus Select
-                                está sendo preparado.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="news-card reveal">
-
-                        <div class="news-image">
-                            ⚔️
-                        </div>
-
-                        <div class="news-content">
-
-                            <span>
-                                EVENTO
-                            </span>
-
-                            <h3>
-                                Novos eventos em breve
-                            </h3>
-
-                            <p>
-                                Fique ligado no Discord para
-                                não perder as novidades.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="news-card reveal">
-
-                        <div class="news-image">
-                            🏆
-                        </div>
-
-                        <div class="news-content">
-
-                            <span>
-                                RANKING
-                            </span>
-
-                            <h3>
-                                Ranking da comunidade
-                            </h3>
-
-                            <p>
-                                Em breve teremos novidades
-                                sobre o ranking.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             DISCORD
-        ========================== -->
-
-        <section class="discord-section">
-
-            <div class="container discord-content">
-
-                <div class="reveal">
-
-                    <span>
-                        💬 FAÇA PARTE DA COMUNIDADE
-                    </span>
-
-                    <h2>
-                        ENTRE NO DISCORD
-                    </h2>
-
-                    <p>
-                        Receba novidades, participe dos
-                        eventos e converse com a comunidade
-                        Nexus Select.
-                    </p>
-
-                </div>
-
-                <a
-                    href="https://discord.gg/UbXGMjhYP"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="button discord-button"
-                >
+                <a href="https://discord.gg/UbXGMjhYP"
+                   target="_blank"
+                   class="btn secondary">
                     💬 ENTRAR NO DISCORD
                 </a>
 
             </div>
 
-        </section>
-
-    </main>
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer class="footer">
-
-        <div class="container footer-content">
-
-            <div class="footer-brand">
-
-                <a
-                    href="#inicio"
-                    class="logo"
-                >
-                    NEXUS
-                    <span>SELECT</span>
-                </a>
-
-                <p>
-                    Uma comunidade para jogadores,
-                    eventos e competição.
-                </p>
-
-            </div>
-
-
-            <div class="footer-links">
-
-                <a href="#inicio">
-                    Início
-                </a>
-
-                <a href="#sobre">
-                    Servidor
-                </a>
-
-                <a href="#ranking">
-                    Ranking
-                </a>
-
-                <a href="#eventos">
-                    Eventos
-                </a>
-
-                <a href="#noticias">
-                    Notícias
-                </a>
-
-                <a
-                    href="https://discord.gg/UbXGMjhYP"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Discord
-                </a>
-
-            </div>
-
         </div>
 
+    </section>
 
-        <div class="footer-bottom">
+
+    <!-- LOJA -->
+    <section class="section">
+
+        <div class="section-title">
+
+            <span>COMPRE AGORA</span>
+
+            <h2>
+                🛒 LOJA
+            </h2>
 
             <p>
-                © <span id="year">2026</span>
-                Nexus Select. Todos os direitos reservados.
+                Confira nossos principais produtos e serviços.
             </p>
 
         </div>
 
-    </footer>
+
+        <div class="products-preview">
+
+            <div class="product-card">
+
+                <div class="product-icon">
+                    👑
+                </div>
+
+                <h3>Contas LVL MAX</h3>
+
+                <p>
+                    Contas com nível máximo disponíveis.
+                </p>
+
+                <a href="loja.html" class="product-btn">
+                    VER PRODUTOS
+                </a>
+
+            </div>
 
 
-    <script src="./script.js"></script>
+            <div class="product-card">
+
+                <div class="product-icon">
+                    🌊
+                </div>
+
+                <h3>Contas 2º / 3º SEA</h3>
+
+                <p>
+                    Contas disponíveis para compra.
+                </p>
+
+                <a href="loja.html" class="product-btn">
+                    VER PRODUTOS
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-icon">
+                    ⚔️
+                </div>
+
+                <h3>Serviços</h3>
+
+                <p>
+                    Serviços, farm e itens disponíveis.
+                </p>
+
+                <a href="loja.html" class="product-btn">
+                    VER PRODUTOS
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DISCORD -->
+    <section class="discord-section">
+
+        <div class="discord-box">
+
+            <div class="discord-icon">
+                💬
+            </div>
+
+            <div class="discord-content">
+
+                <span>COMUNIDADE</span>
+
+                <h2>
+                    Entre no nosso Discord
+                </h2>
+
+                <p>
+                    Abra tickets, veja novidades, confira produtos
+                    e fale com nossa comunidade.
+                </p>
+
+            </div>
+
+            <a href="https://discord.gg/UbXGMjhYP"
+               target="_blank"
+               class="discord-btn">
+
+                ENTRAR NO DISCORD
+
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-logo">
+        NEXUS <span>SELECT</span>
+    </div>
+
+    <p>
+        Sua loja online.
+    </p>
+
+    <div class="footer-links">
+
+        <a href="index.html">🏠 Início</a>
+
+        <a href="loja.html">🛒 Loja</a>
+
+        <a href="https://discord.gg/UbXGMjhYP"
+           target="_blank">
+            💬 Discord
+        </a>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 Nexus Select. Todos os direitos reservados.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
-  </html>
+</html>
