@@ -1,525 +1,101 @@
-document.addEventListener("DOMContentLoaded", () => {
-
-    /*
-     * ==========================================
-     * NEXUS SELECT
-     * JavaScript da página inicial
-     * ==========================================
-     */
+// ========================================
+// NEXUS SELECT
+// SCRIPT DA PÁGINA INICIAL
+// ========================================
 
 
-    /* ==========================================
-       MENU MOBILE
-    ========================================== */
+// MENU MOBILE
 
-    const menuButton =
-        document.getElementById("menuButton");
+const menuBtn = document.getElementById("menuBtn");
+const navMenu = document.getElementById("navMenu");
 
-    const menu =
-        document.getElementById("menu");
+if (menuBtn && navMenu) {
 
+    menuBtn.addEventListener("click", () => {
 
-    if (menuButton && menu) {
+        navMenu.classList.toggle("show");
 
-        menuButton.addEventListener(
-            "click",
-            () => {
-
-                const isOpen =
-                    menu.classList.toggle("open");
-
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    String(isOpen)
-                );
-
-                menuButton.textContent =
-                    isOpen ? "✕" : "☰";
-
-            }
-        );
+    });
 
 
-        const menuLinks =
-            menu.querySelectorAll("a");
+    // Fecha o menu ao clicar em um link
 
+    const navLinks = navMenu.querySelectorAll("a");
 
-        menuLinks.forEach(link => {
+    navLinks.forEach(link => {
 
-            link.addEventListener(
-                "click",
-                () => {
+        link.addEventListener("click", () => {
 
-                    menu.classList.remove("open");
-
-                    menuButton.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                    menuButton.textContent =
-                        "☰";
-
-                }
-            );
+            navMenu.classList.remove("show");
 
         });
 
-    }
+    });
+
+}
 
 
-    /* ==========================================
-       HEADER AO ROLAR
-    ========================================== */
+// EFEITO NO HEADER AO ROLAR
 
-    const header =
-        document.getElementById("header");
+const header = document.querySelector(".header");
 
+window.addEventListener("scroll", () => {
 
-    function updateHeader() {
+    if (!header) return;
 
-        if (!header) {
-            return;
-        }
+    if (window.scrollY > 30) {
 
-        if (window.scrollY > 30) {
+        header.style.background =
+            "rgba(3, 8, 22, 0.98)";
 
-            header.classList.add(
-                "scrolled"
-            );
+    } else {
 
-        } else {
-
-            header.classList.remove(
-                "scrolled"
-            );
-
-        }
+        header.style.background =
+            "rgba(3, 8, 22, 0.95)";
 
     }
 
-
-    window.addEventListener(
-        "scroll",
-        updateHeader,
-        { passive: true }
-    );
+});
 
 
-    updateHeader();
+// ANIMAÇÃO DOS CARDS
 
+const cards = document.querySelectorAll(
+    ".product-card, .discord-box"
+);
 
-    /* ==========================================
-       CONTADOR DE JOGADORES
-    ========================================== */
+const observer = new IntersectionObserver(
+    (entries) => {
 
-    const counters =
-        document.querySelectorAll(
-            "[data-counter]"
-        );
+        entries.forEach(entry => {
 
+            if (entry.isIntersecting) {
 
-    function animateCounter(element) {
-
-        const target =
-            Number(
-                element.dataset.counter
-            );
-
-
-        if (
-            !Number.isFinite(target)
-        ) {
-            return;
-        }
-
-
-        let current = 0;
-
-        const duration = 1200;
-
-        const start =
-            performance.now();
-
-
-        function update(time) {
-
-            const progress =
-                Math.min(
-                    (time - start) /
-                    duration,
-                    1
-                );
-
-
-            const eased =
-                1 -
-                Math.pow(
-                    1 - progress,
-                    3
-                );
-
-
-            current =
-                Math.floor(
-                    target * eased
-                );
-
-
-            element.textContent =
-                current.toLocaleString(
-                    "pt-BR"
-                );
-
-
-            if (progress < 1) {
-
-                requestAnimationFrame(
-                    update
-                );
-
-            } else {
-
-                element.textContent =
-                    target.toLocaleString(
-                        "pt-BR"
-                    );
+                entry.target.style.opacity = "1";
+                entry.target.style.transform =
+                    "translateY(0)";
 
             }
 
-        }
+        });
 
-
-        requestAnimationFrame(
-            update
-        );
-
+    },
+    {
+        threshold: 0.15
     }
+);
 
 
-    /*
-     * O número abaixo é apenas um valor
-     * demonstrativo.
-     *
-     * Quando tivermos uma API do servidor,
-     * poderemos substituir automaticamente
-     * pelo número real de jogadores online.
-     */
+cards.forEach(card => {
 
-    const counterObserver =
-        new IntersectionObserver(
-            entries => {
+    card.style.opacity = "0";
 
-                entries.forEach(entry => {
+    card.style.transform =
+        "translateY(25px)";
 
-                    if (
-                        entry.isIntersecting
-                    ) {
+    card.style.transition =
+        "opacity 0.6s ease, transform 0.6s ease";
 
-                        animateCounter(
-                            entry.target
-                        );
-
-                        counterObserver.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.5
-            }
-        );
-
-
-    counters.forEach(counter => {
-
-        counterObserver.observe(
-            counter
-        );
-
-    });
-
-
-    /* ==========================================
-       ANIMAÇÃO DOS ELEMENTOS
-    ========================================== */
-
-    const revealElements =
-        document.querySelectorAll(
-            ".reveal"
-        );
-
-
-    const revealObserver =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-                        entry.target.classList.add(
-                            "visible"
-                        );
-
-                        revealObserver.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.12
-            }
-        );
-
-
-    revealElements.forEach(element => {
-
-        revealObserver.observe(
-            element
-        );
-
-    });
-
-
-    /* ==========================================
-       ATUALIZAR ANO AUTOMATICAMENTE
-    ========================================== */
-
-    const year =
-        document.getElementById("year");
-
-
-    if (year) {
-
-        year.textContent =
-            new Date()
-                .getFullYear();
-
-    }
-
-
-    /* ==========================================
-       LINKS INTERNOS
-    ========================================== */
-
-    const internalLinks =
-        document.querySelectorAll(
-            'a[href^="#"]'
-        );
-
-
-    internalLinks.forEach(link => {
-
-        link.addEventListener(
-            "click",
-            event => {
-
-                const targetId =
-                    link.getAttribute("href");
-
-
-                if (
-                    !targetId ||
-                    targetId === "#"
-                ) {
-                    return;
-                }
-
-
-                const target =
-                    document.querySelector(
-                        targetId
-                    );
-
-
-                if (!target) {
-                    return;
-                }
-
-
-                event.preventDefault();
-
-
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
-            }
-        );
-
-    });
-
-
-    /* ==========================================
-       MENU ATIVO CONFORME A SEÇÃO
-    ========================================== */
-
-    const sections =
-        document.querySelectorAll(
-            "main section[id]"
-        );
-
-
-    const navigationLinks =
-        document.querySelectorAll(
-            '.menu a[href^="#"]'
-        );
-
-
-    const sectionObserver =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (
-                        !entry.isIntersecting
-                    ) {
-                        return;
-                    }
-
-
-                    const id =
-                        entry.target.id;
-
-
-                    navigationLinks.forEach(
-                        link => {
-
-                            link.classList.remove(
-                                "active"
-                            );
-
-
-                            if (
-                                link.getAttribute(
-                                    "href"
-                                ) === `#${id}`
-                            ) {
-
-                                link.classList.add(
-                                    "active"
-                                );
-
-                            }
-
-                        }
-                    );
-
-                });
-
-            },
-            {
-                rootMargin:
-                    "-35% 0px -55% 0px"
-            }
-        );
-
-
-    sections.forEach(section => {
-
-        sectionObserver.observe(
-            section
-        );
-
-    });
-
-
-    /* ==========================================
-       FECHAR MENU AO CLICAR FORA
-    ========================================== */
-
-    document.addEventListener(
-        "click",
-        event => {
-
-            if (!menu || !menuButton) {
-                return;
-            }
-
-
-            const clickedInsideMenu =
-                menu.contains(
-                    event.target
-                );
-
-
-            const clickedButton =
-                menuButton.contains(
-                    event.target
-                );
-
-
-            if (
-                !clickedInsideMenu &&
-                !clickedButton &&
-                menu.classList.contains("open")
-            ) {
-
-                menu.classList.remove(
-                    "open"
-                );
-
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                menuButton.textContent =
-                    "☰";
-
-            }
-
-        }
-    );
-
-
-    /* ==========================================
-       TECLA ESC
-    ========================================== */
-
-    document.addEventListener(
-        "keydown",
-        event => {
-
-            if (
-                event.key === "Escape" &&
-                menu &&
-                menu.classList.contains("open")
-            ) {
-
-                menu.classList.remove(
-                    "open"
-                );
-
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                menuButton.textContent =
-                    "☰";
-
-            }
-
-        }
-    );
-
-
-    console.log(
-        "🌊 Nexus Select — página inicial carregada."
-    );
+    observer.observe(card);
 
 });
