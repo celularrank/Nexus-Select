@@ -1,0 +1,375 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #0b2145,
+            #030816 55%
+        );
+
+    color: white;
+}
+
+
+/* HEADER */
+
+.header {
+    width: 100%;
+
+    background: rgba(3, 8, 22, 0.96);
+
+    border-bottom: 1px solid #182640;
+}
+
+.nav-container {
+    max-width: 1200px;
+
+    margin: auto;
+
+    min-height: 75px;
+
+    padding: 0 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.logo {
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 25px;
+
+    font-weight: 900;
+}
+
+.logo span {
+    color: #218cff;
+}
+
+nav {
+    display: flex;
+
+    gap: 10px;
+}
+
+nav a {
+    color: #9ba9c0;
+
+    text-decoration: none;
+
+    padding: 10px 14px;
+
+    border-radius: 9px;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+nav a:hover {
+    color: white;
+
+    background: #0d1b34;
+}
+
+
+/* TICKET */
+
+.ticket-section {
+    min-height: calc(100vh - 150px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 60px 20px;
+}
+
+.ticket-box {
+    width: 100%;
+
+    max-width: 600px;
+
+    padding: 45px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0b1931,
+            #071124
+        );
+
+    border: 1px solid #203657;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.35);
+}
+
+.ticket-icon {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #0d2a52;
+
+    border-radius: 18px;
+
+    font-size: 35px;
+
+    margin-bottom: 25px;
+}
+
+.subtitle {
+    color: #4ba0ff;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+h1 {
+    font-size: 42px;
+
+    margin: 8px 0;
+}
+
+.description {
+    color: #8e9db7;
+
+    margin-bottom: 30px;
+
+    font-size: 17px;
+}
+
+
+/* FORM */
+
+form {
+    display: flex;
+
+    flex-direction: column;
+}
+
+label {
+    font-size: 16px;
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 100%;
+
+    min-height: 170px;
+
+    resize: vertical;
+
+    padding: 16px;
+
+    border-radius: 13px;
+
+    border: 1px solid #263b5d;
+
+    outline: none;
+
+    background: #050d1d;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    transition: 0.2s;
+
+    margin-bottom: 20px;
+}
+
+textarea::placeholder {
+    color: #65748d;
+}
+
+textarea:focus {
+    border-color: #218cff;
+
+    box-shadow:
+        0 0 0 3px rgba(33, 140, 255, 0.1);
+}
+
+
+/* BUTTON */
+
+.ticket-button {
+    width: 100%;
+
+    border: none;
+
+    cursor: pointer;
+
+    padding: 16px;
+
+    border-radius: 12px;
+
+    background: #218cff;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    transition: 0.25s;
+}
+
+.ticket-button:hover {
+    background: #3b9cff;
+
+    transform: translateY(-2px);
+}
+
+.ticket-button:active {
+    transform: scale(0.98);
+}
+
+
+/* SUCCESS */
+
+.success-message {
+    display: none;
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    border-radius: 13px;
+
+    background: #092b1d;
+
+    border: 1px solid #1c7b52;
+
+    color: #7dffbd;
+
+    text-align: center;
+
+    font-weight: 700;
+}
+
+.success-message p {
+    color: #9bcdb5;
+
+    font-weight: normal;
+
+    margin: 8px 0 15px;
+}
+
+.success-message a {
+    display: inline-block;
+
+    padding: 11px 18px;
+
+    border-radius: 9px;
+
+    background: #218cff;
+
+    color: white;
+
+    text-decoration: none;
+}
+
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+
+    padding: 35px 20px;
+
+    border-top: 1px solid #15223a;
+
+    background: #050c1b;
+}
+
+.footer-logo {
+    font-size: 22px;
+
+    font-weight: 900;
+}
+
+.footer-logo span {
+    color: #218cff;
+}
+
+footer p {
+    color: #6f7f98;
+
+    margin-top: 7px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .nav-container {
+        flex-direction: column;
+
+        gap: 12px;
+
+        padding: 18px 15px;
+    }
+
+    nav {
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .ticket-section {
+        padding: 35px 15px;
+    }
+
+    .ticket-box {
+        padding: 30px 22px;
+
+        border-radius: 20px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    .description {
+        font-size: 15px;
+    }
+}
