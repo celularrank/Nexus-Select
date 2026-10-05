@@ -1,0 +1,17 @@
+function openTicket(productId) {
+
+    const product = products.find(
+        item => item.id === productId
+    );
+
+    if (!product) return;
+
+    const productName =
+        encodeURIComponent(product.name);
+
+    const productPrice =
+        encodeURIComponent(product.price);
+
+    window.location.href =
+        `ticket/ticket.html?produto=${productName}&preco=${productPrice}`;
+}
